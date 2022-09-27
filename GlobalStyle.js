@@ -17,24 +17,19 @@ const GlobalStyle = StyleSheet.create({
     sectionTitle: {
         fontWeight:'bold',
         fontSize: 24,
+        marginLeft:30,
         textAlign:'center',
-
-    },
-
-    task:{
-
-        marginTop: 30,
-        
     },
 
     items:{
         backgroundColor:'white',
-        padding:15,
         boderRaduis:10,
+        padding:15,
+        marginHorizontal:10,
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between',
-        marginBottom:20,
+        marginTop:20,
     },
 
     square:{
