@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View,platform } from 'react-native';
 import { KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native-web';
 import Task from './components/Task';
-import GlobalStyle from './GlobalStyle';
+import GlobalStyle from './components/GlobalStyle';
 
 export default function App() {
 
@@ -15,7 +15,7 @@ export default function App() {
     setTask('');
   }
 
-  const completeTask=()=>{
+  const completeTask=(index)=>{
     let itemsCopy= [...taskItems];
     itemsCopy.splice(index,1);
     setTaskItems(itemsCopy);
@@ -30,7 +30,7 @@ export default function App() {
             {
               taskItems.map((item,index)=>{
                return(
-                <TouchableOpacity onPress={()=> completeTask()}>
+                <TouchableOpacity onPress={()=> completeTask(index)}>
                   <Task key={index} text={item}/>
                 </TouchableOpacity>
                )

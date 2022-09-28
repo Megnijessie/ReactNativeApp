@@ -1,6 +1,5 @@
 import { Text, View} from 'react-native';
-import GlobalStyle from '../GlobalStyle';
-// import GlobalStyle from "../GlobalStyle";
+import GlobalStyle from './GlobalStyle';
 
  export default function Task(props){
     return(
