@@ -63,6 +63,12 @@ const GlobalStyle = StyleSheet.create({
     },
 
 
+    content:{
+        flexDirection:'row',
+        flex:1,
+        justifyContent:'space-around'
+    },
+
     writeTaskWrapper:{
         position:"absolute",
         bottom:60,
@@ -75,16 +81,18 @@ const GlobalStyle = StyleSheet.create({
     input:{
         paddingVertical:15,
         paddingHorizontal:15,
-        width:250,
+        width:200,
         backgroundColor:'white',
         borderRadius:60,
         borderColor:'#C0C0C0',
         borderWidth:1,
+        paddingTop:5,
     },
 
     addWrapper:{
         width:60,
         height:60,
+        display:'flex',
         backgroundColor:'white',
         borderRadius:60,
         justifyContent:'center',

@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View,platform } from 'react-native';
 import { KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native-web';
 import Task from './components/Task';
 import GlobalStyle from './GlobalStyle';
 
-
 export default function App() {
 
 
-  const [task,setTask]=useState();
+  const [task,setTask]=useState('');
   const [taskItems,setTaskItems]=useState([]);
 
   const handleAddTask= () =>{
     setTaskItems([...taskItems,task]);
-    setTask(null);
+    setTask('');
   }
 
   const completeTask=()=>{
@@ -39,15 +38,18 @@ export default function App() {
             }
           </view>
         </view>
+        <View style={GlobalStyle.writeTaskWrapper}>
+            <KeyboardAvoidingView 
+            // behavior={platform.OS==="ios"? "padding":"height"}
+            >
+              <TextInput style={GlobalStyle.input} placeholder={'write a task'}  value={task} onChangeText={ text=> setTask(text)} />
+            </KeyboardAvoidingView>
 
-        <KeyboardAvoidingView 
-        behavior={platform.OS==="ios"? "padding":"height"}
-        style={GlobalStyle.writeTaskWrapper}>
-          <TextInput style={GlobalStyle.input} placeholder={'write a task'}  value={task} onChangeText={ text=> setTask(text)} />
-        </KeyboardAvoidingView>
-        <TouchableOpacity onPress={()=> handleAddTask()} >
-          <View style={GlobalStyle.addWrapper} > + </View>
-        </TouchableOpacity>
+            <TouchableOpacity onPress={()=> handleAddTask()} >
+              <View style={GlobalStyle.addWrapper} > + </View>
+            </TouchableOpacity>
+        </View>
+        
     </View>
   );
 }
